@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
-            .csrf(csrf -> csrf.disable()) // Disable CSRF for development
+            .csrf(csrf -> csrf.disable()) 
             .headers(headers -> headers.frameOptions(config -> config.sameOrigin())) 
             .httpBasic(httpBasic -> httpBasic.disable()) 
             .formLogin(formLogin -> formLogin.defaultSuccessUrl("/", true)); 
