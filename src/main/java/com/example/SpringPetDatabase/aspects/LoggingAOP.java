@@ -36,7 +36,7 @@ public class LoggingAOP {
     @Around("execution(* com.example.SpringPetDatabase.services.*.*(..))")
     public Object logAroundMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("Before method: " + joinPoint.getSignature());
-        Object result = joinPoint.proceed(); // Proceed with the method execution
+        Object result = joinPoint.proceed(); 
         System.out.println("After method: " + joinPoint.getSignature());
         return result;
     }

@@ -15,7 +15,7 @@ public class PetServiceImpl implements PetService {
     @Override
     public Pet createPet(Pet pet) {
         if (pet.getName() == null || pet.getAnimalType() == null || pet.getBreed() == null) {
-            throw new IllegalArgumentException("Pet details cannot be null");
+            throw new IllegalArgumentException("details cannot be null");
         }
         return petRepository.save(pet);
     }
@@ -28,13 +28,13 @@ public class PetServiceImpl implements PetService {
     @Override
     public Pet getPetById(Long id) {
         return petRepository.findById(id)
-                .orElseThrow(() -> new PetNotFoundException("Pet with ID " + id + " not found"));
+                .orElseThrow(() -> new PetNotFoundException("ID " + id + " not found"));
     }
 
     @Override
     public Pet updatePet(Long id, Pet updatedPet) {
         Pet existingPet = petRepository.findById(id)
-                .orElseThrow(() -> new PetNotFoundException("Pet with ID " + id + " not found"));
+                .orElseThrow(() -> new PetNotFoundException("ID " + id + " not found"));
         existingPet.setName(updatedPet.getName());
         existingPet.setAge(updatedPet.getAge());
         existingPet.setBreed(updatedPet.getBreed());
@@ -44,7 +44,7 @@ public class PetServiceImpl implements PetService {
     @Override
     public void deletePetById(Long id) {
         if (!petRepository.existsById(id)) {
-            throw new PetNotFoundException("Pet with ID " + id + " not found");
+            throw new PetNotFoundException("ID " + id + " not found");
         }
         petRepository.deleteById(id);
     }
@@ -82,7 +82,7 @@ public class PetServiceImpl implements PetService {
     @Override
     public Pet updatePetName(Long id, String name) {
         Pet pet = petRepository.findById(id)
-                           .orElseThrow(() -> new IllegalArgumentException("Pet not found"));
+                           .orElseThrow(() -> new IllegalArgumentException("not found"));
         pet.setName(name);
         return petRepository.save(pet);
     }

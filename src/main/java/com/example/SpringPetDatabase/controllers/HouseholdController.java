@@ -15,32 +15,32 @@ public class HouseholdController {
     @Autowired
     private HouseholdService householdService;
 
-    // Get all households
+    
     @GetMapping
     public List<Household> getAllHouseholds() {
         return householdService.getAllHouseholds();
     }
 
-    // Get households with no pets
+    
     @GetMapping("/no-pets")
     public ResponseEntity<List<Household>> getHouseholdsWithNoPets() {
         List<Household> households = householdService.findHouseholdsWithNoPets();
         return ResponseEntity.ok(households);
     }
 
-    // Get a single household by eircode
+    
     @GetMapping("/{eircode}")
     public ResponseEntity<Household> getHouseholdByEircode(@PathVariable String eircode) {
         return ResponseEntity.ok(householdService.getHouseholdByEircode(eircode));
     }
 
-    // Create a new household
+    
     @PostMapping
     public ResponseEntity<Household> createHousehold(@RequestBody Household household) {
         return ResponseEntity.ok(householdService.createHousehold(household));
     }
 
-    // Delete a household
+    
     @DeleteMapping("/{eircode}")
     public ResponseEntity<Void> deleteHousehold(@PathVariable String eircode) {
         householdService.deleteHouseholdByEircode(eircode);

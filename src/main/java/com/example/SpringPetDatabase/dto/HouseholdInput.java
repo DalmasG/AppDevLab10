@@ -17,7 +17,7 @@ public class HouseholdInput {
     @NotNull
     private Boolean ownerOccupied;
 
-    // Getters and Setters
+    
     public String getEircode() {
         return eircode;
     }

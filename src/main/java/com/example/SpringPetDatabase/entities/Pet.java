@@ -16,7 +16,7 @@ public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Primary key
+    private Long id; 
 
     @Column(nullable = false)
     private String name;

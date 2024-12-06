@@ -21,7 +21,7 @@ public class HouseholdServiceImpl implements HouseholdService {
     @Override
     public Household getHouseholdByEircode(String eircode) {
         return householdRepository.findById(eircode)
-                .orElseThrow(() -> new IllegalArgumentException("Household with eircode " + eircode + " not found"));
+                .orElseThrow(() -> new IllegalArgumentException(" eircode " + eircode + " not found"));
     }
 
     @Override
